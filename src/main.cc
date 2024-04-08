@@ -6,10 +6,9 @@
 
 
 int main() {
+    
+    // Initialization    
     Game game;
-    
-    // Initialization
-    
 
     // Main game loop
     while (!WindowShouldClose()) {
