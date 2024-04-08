@@ -12,6 +12,10 @@ Tetris, a classic 2D game made with C++ and Raylib
     ```shell
     git clone https://github.com/FinnTheHero/Tetris.git && cd Tetirs
     ```
+    **If folders `bin` and `obj` dont already exist, make them using command**
+    ```shell
+    mkdir bin obj
+    ```
 
 2. Build project
     ```shell
