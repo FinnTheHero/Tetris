@@ -10,11 +10,11 @@ Game::~Game() {}
 
 void Game::init()
 {
-    SetConfigFlags(FLAG_VSYNC_HINT | FLAG_FULLSCREEN_MODE | FLAG_WINDOW_RESIZABLE);
+    SetConfigFlags(FLAG_VSYNC_HINT | FLAG_FULLSCREEN_MODE );
 
     InitWindow(0, 0, "Tetris");
 
-    HideCursor();
+    DisableCursor();
 
     SetExitKey(KEY_DELETE);
 }
