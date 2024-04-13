@@ -1,14 +1,14 @@
 #pragma once
 
-// Raylib
-#include "raylib.h"
-
-// Game libraries
-
 // Standard libraries
 #include <iostream>
 #include <vector>
 #include <string>
+
+// Raylib
+#include "raylib.h"
+
+// Game libraries
 
 enum GameMode
 {
