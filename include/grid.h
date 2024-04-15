@@ -1,5 +1,8 @@
 #pragma once
 
+// Standard libraries
+#include <vector>
+
 // Raylib
 #include "raylib.h"
 
@@ -14,6 +17,10 @@ public:
     void init();
     void draw();
 
+    std::vector<Color> getColors();
+
 private:
     int numRows, numCols, cellSize;
+
+    std::vector<Color> colors;
 };
