@@ -17,8 +17,14 @@ Clone of a classic 2D game Tetris, made with C++ and Raylib
     mkdir bin obj
     ```
 
-2. Build project
+2. Build the project
     ```shell
     make
     ```
     This will generate game executable in `/bin` folder
+
+3. Run the project
+    ```shell
+    ./bin/Tetirs
+    ```
+    **To exit, game press DELETE**
