@@ -4,11 +4,14 @@
 Game::Game()
 {
     init();
+    loop();
 }
 
-Game::~Game() {}
+Game::~Game() {
+    deInit();
+}
 
-void Game::init()
+void screenSettings()
 {
     SetConfigFlags(FLAG_VSYNC_HINT | FLAG_FULLSCREEN_MODE );
 
@@ -19,15 +22,28 @@ void Game::init()
     SetExitKey(KEY_DELETE);
 }
 
-void Game::update() {}
-
-void Game::draw()
+void Game::init()
 {
-    BeginDrawing();
-        ClearBackground(BLACK);
-        DrawText("Tetris", 100, 100, 20, WHITE);
-        DrawFPS(10, 10);
-    EndDrawing();
+    screenSettings();
+}
+
+void Game::loop()
+{
+    Grid grid;
+
+    while (!WindowShouldClose())
+    {
+        
+
+        BeginDrawing();
+            ClearBackground(BLACK);
+            // DrawText("Tetris", 100, 100, 20, WHITE);
+
+            grid.draw();
+
+            DrawFPS(10, 10);
+        EndDrawing();
+    }
 }
 
 void Game::deInit()
