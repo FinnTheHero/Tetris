@@ -33,8 +33,6 @@ void Game::loop()
 
     while (!WindowShouldClose())
     {
-        
-
         BeginDrawing();
             ClearBackground(BLACK);
             // DrawText("Tetris", 100, 100, 20, WHITE);

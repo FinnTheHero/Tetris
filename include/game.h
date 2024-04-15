@@ -20,10 +20,10 @@ enum GameMode
 
 class Game
 {
-    public:
-        Game();
-        ~Game();
-        void init();
-        void loop();
-        void deInit();
+public:
+    Game();
+    ~Game();
+    void init();
+    void loop();
+    void deInit();
 };
