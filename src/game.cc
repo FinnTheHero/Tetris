@@ -1,5 +1,6 @@
 // Game libraries
 #include "game.h"
+#include "blocks.h"
 
 Game::Game()
 {
@@ -31,6 +32,8 @@ void Game::loop()
 {
     Grid grid;
 
+    LBlock block;
+
     while (!WindowShouldClose())
     {
         BeginDrawing();
@@ -38,7 +41,7 @@ void Game::loop()
             // DrawText("Tetris", 100, 100, 20, WHITE);
 
             grid.draw();
-
+            block.draw();
             DrawFPS(10, 10);
         EndDrawing();
     }

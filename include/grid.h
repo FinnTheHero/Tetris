@@ -17,8 +17,6 @@ public:
     void init();
     void draw();
 
-    std::vector<Color> getColors();
-
 private:
     int numRows, numCols, cellSize;
 
