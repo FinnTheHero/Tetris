@@ -9,6 +9,7 @@
 #include "raylib.h"
 
 // Game libraries
+#include "grid.h"
 
 enum GameMode
 {
@@ -23,7 +24,6 @@ class Game
         Game();
         ~Game();
         void init();
-        void update();
-        void draw();
+        void loop();
         void deInit();
 };

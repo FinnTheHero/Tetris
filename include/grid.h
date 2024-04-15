@@ -1,11 +1,19 @@
 #pragma once
 
+// Raylib
+#include "raylib.h"
+
 class Grid
 {
 public:
-    Grid(int width, int height);
+    Grid();
     ~Grid();
-    void set(int x, int y, int value);
-    int get(int x, int y);
-    void print();
+
+    int grid[20][10];
+
+    void init();
+    void draw();
+
+private:
+    int numRows, numCols, cellSize;
 };
