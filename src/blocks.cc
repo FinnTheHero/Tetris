@@ -1,10 +1,15 @@
 #include "blocks.h"
-#include "position.h"
+
+Position::Position(int row, int col)
+{
+    this -> row = row;
+    this -> col = col;
+}
 
 Block::Block()
 {
     cellSize = 40;
-    rotationState = 1;
+    rotationState = 2;
     colors = getColors();
 }
 
