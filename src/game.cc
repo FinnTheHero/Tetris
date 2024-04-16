@@ -1,6 +1,5 @@
 // Game libraries
 #include "game.h"
-#include "blocks.h"
 
 Game::Game()
 {
@@ -26,22 +25,27 @@ void screenSettings()
 void Game::init()
 {
     screenSettings();
+
+    grid = Grid();
+
+    blocks = getAllBlocks();
+
+    currentBlock = getRandomBlock();
+    nextBlock = getRandomBlock();
 }
 
 void Game::loop()
 {
-    Grid grid;
-
-    LBlock block;
-
     while (!WindowShouldClose())
     {
+        handleInput();
+
         BeginDrawing();
             ClearBackground(BLACK);
             // DrawText("Tetris", 100, 100, 20, WHITE);
 
             grid.draw();
-            block.draw();
+            currentBlock.draw();
             DrawFPS(10, 10);
         EndDrawing();
     }
@@ -50,4 +54,96 @@ void Game::loop()
 void Game::deInit()
 {
     CloseWindow();
+}
+
+
+Block Game::getRandomBlock()
+{
+    // If there are no blocks left, refill the list
+    if (blocks.empty())
+    {
+        blocks = getAllBlocks();
+    }
+    srand(time(NULL));
+
+    int randomIndex = rand() % blocks.size();
+
+    // Choose random block
+    Block block = blocks[randomIndex];
+
+    // Remove block from list
+    blocks.erase(blocks.begin() + randomIndex);
+
+    return block;
+}
+
+std::vector<Block> Game::getAllBlocks()
+{
+    return {
+        LBlock(),
+        JBlock(),
+        IBlock(),
+        OBlock(),
+        SBlock()
+    };
+}
+
+void Game::moveLeft()
+{
+    currentBlock.move(0, -1);
+    if (isBlockOutside())
+    {
+        currentBlock.move(0, 1);
+    }
+}
+
+void Game::moveRight()
+{
+    currentBlock.move(0, 1);
+    if (isBlockOutside())
+    {
+        currentBlock.move(0, -1);
+    }
+}
+
+void Game::moveDown()
+{
+    currentBlock.move(1, 0);
+    if (isBlockOutside())
+    {
+        currentBlock.move(-1, 0);
+    }
+}
+
+void Game::handleInput()
+{
+    int key = GetKeyPressed();
+
+    switch(key)
+    {
+    case KEY_LEFT:
+        moveLeft();
+        break;
+    case KEY_RIGHT:
+        moveRight();
+        break;
+    case KEY_DOWN:
+        moveDown();
+        break;
+    }
+}
+
+bool Game::isBlockOutside()
+{
+    std::vector<Position> tiles = currentBlock.getCellPosition();
+
+    for (Position tile : tiles)
+    {
+        if(grid.isCellOutside(tile.row, tile.col))
+        {
+            return true;
+        }
+    }
+    
+    return false;
 }
