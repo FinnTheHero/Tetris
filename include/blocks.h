@@ -22,12 +22,13 @@ public:
 
     int id;
 
+    void draw();
+    void move(int rows, int cols);
+    std::vector<Position> getCellPosition();
     std::map<int, std::vector<Position>> cells;
 
-    void draw();
-
 private:
-    int cellSize, rotationState;
+    int cellSize, rotationState, rowOffset, colOffset;
 
     std::vector<Color> colors;
 };
@@ -37,4 +38,40 @@ class LBlock : public Block
 {
 public:
     LBlock();
+};
+
+class JBlock : public Block
+{
+public:
+    JBlock();
+};
+
+class IBlock : public Block
+{
+public:
+    IBlock();
+};
+
+class OBlock : public Block
+{
+public:
+    OBlock();
+};
+
+class SBlock : public Block
+{
+public:
+    SBlock();
+};
+
+class TBlock : public Block
+{
+public:
+    TBlock();
+};
+
+class ZBlock : public Block
+{
+public:
+    ZBlock();
 };

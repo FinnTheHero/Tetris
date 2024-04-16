@@ -2,6 +2,7 @@
 
 // Standard libraries
 #include <vector>
+#include <iostream>
 
 // Raylib
 #include "raylib.h"
@@ -16,6 +17,8 @@ public:
 
     void init();
     void draw();
+
+    bool isCellOutside(int row, int col);
 
 private:
     int numRows, numCols, cellSize;
