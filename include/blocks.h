@@ -5,8 +5,15 @@
 #include <map>
 
 // Game libraries
-#include "position.h"
 #include "colors.h"
+
+
+class Position
+{
+public:
+    Position(int row, int col);
+    int row, col;
+};
 
 class Block
 {
