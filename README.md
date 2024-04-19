@@ -12,18 +12,19 @@ Clone of a classic 2D game Tetris, made with C++ and Raylib
     ```shell
     git clone https://github.com/FinnTheHero/Tetris.git && cd Tetirs
     ```
-    **If folders `bin` and `obj` dont already exist, make them using command**
+
+2.    Create folders `bin` & `obj` using command:
     ```shell
     mkdir bin obj
     ```
 
-2. Build the project
+3. Build the project
     ```shell
     make
     ```
     This will generate game executable in `/bin` folder
 
-3. Run the project
+4. Run the project
     ```shell
     ./bin/Tetirs
     ```
