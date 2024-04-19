@@ -13,7 +13,7 @@ Clone of a classic 2D game Tetris, made with C++ and Raylib
     git clone https://github.com/FinnTheHero/Tetris.git && cd Tetirs
     ```
 
-2.    Create folders `bin` & `obj` using command:
+2. Create folders `bin` & `obj` using command:
     ```shell
     mkdir bin obj
     ```
