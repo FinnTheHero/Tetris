@@ -26,6 +26,8 @@ void Game::init()
 {
     screenSettings();
 
+    lastUpdatedTime = 0;
+
     grid = Grid();
 
     blocks = getAllBlocks();
@@ -38,6 +40,11 @@ void Game::loop()
 {
     while (!WindowShouldClose())
     {
+        if (timePassed(0.75))
+        {
+            moveDown();
+        }
+
         handleInput();
 
         BeginDrawing();
@@ -130,6 +137,9 @@ void Game::handleInput()
     case KEY_DOWN:
         moveDown();
         break;
+    case KEY_UP:
+        rotateBlock();
+        break;
     }
 }
 
@@ -145,5 +155,26 @@ bool Game::isBlockOutside()
         }
     }
     
+    return false;
+}
+
+void Game::rotateBlock()
+{
+    currentBlock.rotate();
+    if (isBlockOutside())
+    {
+        currentBlock.unRotate();
+    }
+}
+
+bool Game::timePassed(double interval)
+{
+    double currentTime = GetTime();
+
+    if (currentTime - lastUpdatedTime >= interval)
+    {
+        lastUpdatedTime = currentTime;
+        return true;
+    }
     return false;
 }
