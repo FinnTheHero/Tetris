@@ -42,9 +42,17 @@ public:
 
     void handleInput();
 
+    bool timePassed(double);
+    
+    double lastUpdatedTime;
+
 private:
+
     bool isBlockOutside();
+    void rotateBlock();
+
     std::vector<Block> blocks;
+    
     Block currentBlock;
     Block nextBlock;
 };
